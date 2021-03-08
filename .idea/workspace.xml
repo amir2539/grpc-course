@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8e917ff-57bf-4e8c-a51a-05bf653928b1" name="Default Changelist" comment="" />
+    <list default="true" id="e8e917ff-57bf-4e8c-a51a-05bf653928b1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/greet/greet_client/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/greet/greet_client/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/greet/greet_server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/greet/greet_server/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/greet/greetpb/greet.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/greet/greetpb/greet.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/greet/greetpb/greet.proto" beforeDir="false" afterPath="$PROJECT_DIR$/greet/greetpb/greet.proto" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,10 +21,14 @@
     </option>
   </component>
   <component name="GOROOT" path="C:\Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="1nR5Qcw1hOJSauCYlhcjMQZFBOy" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -54,6 +64,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="522" y="216" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1614971046135" />
+    <state x="393" y="8" key="CommitChangelistDialog2" timestamp="1615234045253">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="393" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1615234045253" />
     <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1614245528316">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -62,5 +76,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1614971204455" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1615233728374">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1615233728374" />
   </component>
 </project>
