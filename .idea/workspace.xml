@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e8e917ff-57bf-4e8c-a51a-05bf653928b1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generate.sh" beforeDir="false" afterPath="$PROJECT_DIR$/generate.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/greet/greet_client/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/greet/greet_client/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/greet/greet_server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/greet/greet_server/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/greet/greetpb/greet.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/greet/greetpb/greet.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/greet/greetpb/greet.proto" beforeDir="false" afterPath="$PROJECT_DIR$/greet/greetpb/greet.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
