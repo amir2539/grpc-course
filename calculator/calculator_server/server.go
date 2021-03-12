@@ -19,6 +19,23 @@ func (*server) Sum(ctx context.Context, req *calculator_pb.SumRequest) (*calcula
 	res := &calculator_pb.SumResponse{SumResult: sum}
 	return res, nil
 }
+func (*server) PrimeNumberDeComp(req *calculator_pb.PrimeNumberDeCompRequest, stream calculator_pb.CalculatorService_PrimeNumberDeCompServer) error {
+	fmt.Print("recdasd;")
+	number := req.GetNumber()
+	divisor := int64(2)
+	for number > 1 {
+		if number%divisor == 0 {
+			stream.Send(&calculator_pb.PrimeNumberDeCompResponse{
+				PrimeFactor: divisor,
+			})
+			number /= divisor
+		} else {
+			divisor++
+			fmt.Printf("divisor increased %v", divisor)
+		}
+	}
+	return nil
+}
 
 func main() {
 
