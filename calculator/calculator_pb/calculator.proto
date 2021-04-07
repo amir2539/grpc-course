@@ -19,8 +19,18 @@ message PrimeNumberDeCompResponse {
   int64 prime_factor = 1;
 }
 
+message ComputeAverageRequest {
+  int64 number = 1;
+}
+
+message ComputeAverageResponse {
+  double average = 1;
+}
+
 service CalculatorService{
   rpc Sum(SumRequest) returns (SumResponse){};
 
   rpc PrimeNumberDeComp(PrimeNumberDeCompRequest) returns (stream PrimeNumberDeCompResponse){};
+
+  rpc ComputeAverage(stream ComputeAverageRequest) returns (ComputeAverageResponse){};
 }
