@@ -22,7 +22,8 @@ func main() {
 
 	//doUnary(c)
 	//doServerStreamin(c)
-	doClientStreaming(c)
+	//doClientStreaming(c)
+	doBidiStreaming(c)
 }
 
 func doUnary(c calculator_pb.CalculatorServiceClient) {
@@ -85,4 +86,44 @@ func doClientStreaming(client calculator_pb.CalculatorServiceClient) {
 	}
 
 	fmt.Printf("average: %v \n", res.GetAverage())
+}
+
+func doBidiStreaming(client calculator_pb.CalculatorServiceClient) {
+	fmt.Printf("client started")
+
+	stream, err := client.FindMaximum(context.Background())
+	if err != nil {
+		log.Fatalf("Error when opening strea %v", err)
+	}
+
+	waitc := make(chan struct{})
+
+	// Send
+	go func() {
+
+		numbers := []int32{4, 656, 7, 344, 7666, 20, 4534534}
+		for _, number := range numbers {
+			stream.Send(&calculator_pb.FindMaximumRequest{Number: number})
+			//time.Sleep(time.Millisecond * 1000)
+		}
+		stream.CloseSend()
+	}()
+
+	// Receive
+	go func() {
+		for {
+			res, err := stream.Recv()
+			if err == io.EOF {
+				break
+			}
+			if err != nil {
+				log.Fatalf("Problem when reading client %v", err)
+			}
+
+			maximum := res.GetMaximum()
+			fmt.Printf("Received new max :%v \n", maximum)
+		}
+		close(waitc)
+	}()
+	<-waitc
 }
