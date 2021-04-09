@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"github.com/amir2539/grpc/calculator/calculator_pb"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 	"io"
 	"log"
 )
@@ -23,7 +25,8 @@ func main() {
 	//doUnary(c)
 	//doServerStreamin(c)
 	//doClientStreaming(c)
-	doBidiStreaming(c)
+	//doBidiStreaming(c)
+	squareRootUnary(c)
 }
 
 func doUnary(c calculator_pb.CalculatorServiceClient) {
@@ -126,4 +129,36 @@ func doBidiStreaming(client calculator_pb.CalculatorServiceClient) {
 		close(waitc)
 	}()
 	<-waitc
+}
+
+func squareRootUnary(c calculator_pb.CalculatorServiceClient) {
+
+	doErrorCall(c, int32(10))
+
+	doErrorCall(c, int32(-2))
+}
+
+func doErrorCall(c calculator_pb.CalculatorServiceClient, number int32) {
+	res, err := c.SquareRoot(context.Background(), &calculator_pb.SquareRootRequest{
+		Number: number,
+	})
+	if err != nil {
+		resErr, ok := status.FromError(err)
+
+		if ok {
+			// Is error form grpc
+			fmt.Println(resErr.Message())
+			fmt.Println(resErr.Code())
+
+			if resErr.Code() == codes.InvalidArgument {
+				fmt.Println("negative number")
+				return
+			}
+
+		} else {
+			log.Fatalf("Big Error %v", err)
+		}
+	}
+
+	fmt.Printf("Result %v sqrt= %v", number, res.GetNumberRoot())
 }

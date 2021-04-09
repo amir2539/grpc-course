@@ -5,8 +5,11 @@ import (
 	"fmt"
 	"github.com/amir2539/grpc/calculator/calculator_pb"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 	"io"
 	"log"
+	"math"
 	"net"
 )
 
@@ -37,7 +40,6 @@ func (*server) PrimeNumberDeComp(req *calculator_pb.PrimeNumberDeCompRequest, st
 	}
 	return nil
 }
-
 func (*server) ComputeAverage(stream calculator_pb.CalculatorService_ComputeAverageServer) error {
 
 	fmt.Println("recieved average server\n")
@@ -60,7 +62,6 @@ func (*server) ComputeAverage(stream calculator_pb.CalculatorService_ComputeAver
 		count++
 	}
 }
-
 func (*server) FindMaximum(stream calculator_pb.CalculatorService_FindMaximumServer) error {
 
 	fmt.Printf("Find max server")
@@ -85,6 +86,21 @@ func (*server) FindMaximum(stream calculator_pb.CalculatorService_FindMaximumSer
 			}
 		}
 	}
+}
+
+func (*server) SquareRoot(ctx context.Context, req *calculator_pb.SquareRootRequest) (*calculator_pb.SquareRootResponse, error) {
+	number := req.GetNumber()
+
+	if number < 0 {
+		return nil, status.Errorf(
+			codes.InvalidArgument,
+			fmt.Sprintf("Received negative number: %v", number),
+		)
+	}
+
+	return &calculator_pb.SquareRootResponse{
+		NumberRoot: math.Sqrt(float64(number)),
+	}, nil
 }
 
 func main() {
