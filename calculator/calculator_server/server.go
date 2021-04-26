@@ -6,6 +6,7 @@ import (
 	"github.com/amir2539/grpc/calculator/calculator_pb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/reflection"
 	"google.golang.org/grpc/status"
 	"io"
 	"log"
@@ -114,6 +115,8 @@ func main() {
 
 	s := grpc.NewServer()
 	calculator_pb.RegisterCalculatorServiceServer(s, &server{})
+
+	reflection.Register(s)
 
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("Failed to listen %v", err)
